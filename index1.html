@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<style type="text/css">
+		.box {
+			height: 100px;
+			width: 100px;
+			background: red;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+
+	<script type="text/javascript">
+		let boxes = document.querySelectorAll('.box');
+
+		let left1 = 0;
+		let left2 = 0;
+		boxes[3].style.background = "black";
+		boxes[0].style.background = "black";
+		boxes[1].onclick = function() {
+			left += 100;
+			boxes[1].style.transition = '0.3s';
+			boxes[1].style.marginLeft = left + "px";
+			if (left == 500) {
+				boxes[1].style.display = "none";
+			}
+		}
+		boxes[2].onclick = function() {
+			left += 100;
+			boxes[2].style.transition = '0.3s';
+			boxes[2].style.marginLeft = left + "px";
+			if (left == 500) {
+				boxes[2].style.marginLeft = "0px";
+				left = 0
+			}
+		}
+	</script>
+</body>
+</html>

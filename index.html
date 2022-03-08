@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<style type="text/css">
+		.shooter {
+			width: 80px; 
+			position: absolute; 	
+		}
+		.sunfl {
+			width: 80px; 
+			position: absolute; 	
+		}
+		.box {
+			background-image: url(game.png);
+			height: 1000px; 
+			background-size: 100% 100%;
+		}
+		.zombies {
+			width: 80px; 
+			position: absolute;
+		}
+	</style>
+</head>
+<body>	
+	
+	<div class="box" style="">
+
+		<div class="col-8 mx-auto winner" style="height: 700px; display: none;">
+			<img src="win.jpg" style="width: 100%; height: 100%">
+		</div>
+		
+		<h1 style="position: absolute; left: 1000px; top: 50px; font-family: Helvetica">Очки: <span class="ochki">0</span></h1>
+
+
+		<img class="sunfl" src="sunflower.png"  style="top: 250px; margin-left: 600px">		
+		<img class="sunfl" src="sunflower.png"  style="top: 350px; margin-left: 600px">	
+		<img class="sunfl" src="sunflower.png"  style="top: 450px; margin-left: 600px">	
+		<img class="sunfl" src="sunflower.png"  style="top: 550px; margin-left: 600px">
+		<img class="sunfl" src="sunflower.png"  style="top: 650px; margin-left: 600px">
+
+		<!--ГОРОХИ-->
+	    <img class="shooter" src="peashooter.png"  style="top: 250px; margin-left: 700px">		
+		<img class="shooter" src="peashooter.png"  style="top: 350px; margin-left: 700px">	
+		<img class="shooter" src="peashooter.png"  style="top: 450px; margin-left: 700px">	
+		<img class="shooter" src="peashooter.png"  style="top: 550px; margin-left: 700px">
+		<img class="shooter" src="peashooter.png"  style="top: 650px; margin-left: 700px">
+
+
+		<!--ЗОМБИ-->
+		<img class="zombies" src="zombie1.png" style="top: 220px; margin-left: 1470px">
+		<img class="zombies" src="zombie2.png" style="top: 320px; margin-left: 1470px">
+		<img class="zombies" src="zombie2.png" style="top: 420px; margin-left: 1470px">
+		<img class="zombies" src="zombie4.png" style="top: 520px; margin-left: 1470px">
+		<img class="zombies" src="zombie4.png" style="top: 620px; margin-left: 1470px">
+	</div>
+<script>
+	let zomb = document.querySelectorAll('.zombies');
+	let plant = document.querySelectorAll('.shooter');
+	let sunf = document.querySelectorAll('.sunfl');
+	let score = 0;
+
+	let win = document.querySelector('.winner');
+
+	let left1 = 1470;
+	let left2 = 1470;
+	let left3 = 1470;
+	let left4 = 1470;
+	let left5 = 1470;	
+
+	zomb[0].onclick = function() {
+			left1 -= 110;
+			zomb[0].style.transition = '0.3s';
+			zomb[0].style.marginLeft = left1 + "px";
+			if (left1 == 700) {
+				alert("Горохострел съели");
+				plant[0].style.display = "none";
+				score += 1;
+				console.log(score);
+				document.querySelector('.ochki').innerHTML = score;
+			}
+			if (left1 == 590) {
+				alert("Подсолнух съели");
+				sunf[0].style.display = "none";
+				score += 1;
+				document.querySelector('.ochki').innerHTML = score;
+			}
+			if (score == 10) {
+		zomb.style.display = "none";
+		win.style.display = "block";
+		document.querySelector('.box').style.display = "none";
+		}
+		}
+	zomb[1].onclick = function() {
+			left2 -= 110;
+			zomb[1].style.transition = '0.3s';
+			zomb[1].style.marginLeft = left2 + "px";
+			if (left2 == 700) {
+				alert("Горохострел съели");
+				plant[1].style.display = "none";
+				score += 1;
+				document.querySelector('.ochki').innerHTML = score;
+			}
+			if (left2 == 590) {
+				alert("Подсолнух съели");
+				sunf[1].style.display = "none";
+				score += 1;
+				document.querySelector('.ochki').innerHTML = score;
+			}
+			if (score == 10) {
+		zomb.style.display = "none";
+		win.style.display = "block";
+		document.querySelector('.box').style.display = "none";
+		}
+		}
+	zomb[2].onclick = function() {
+			left3 -= 110;
+			zomb[2].style.transition = '0.3s';
+			zomb[2].style.marginLeft = left3 + "px";
+			if (left3 == 700) {
+				alert("Горохострел съели")
+				plant[2].style.display = "none";
+				score += 1;
+				document.querySelector('.ochki').innerHTML = score;
+			}
+			if (left3 == 590) {
+				alert("Подсолнух съели");
+				sunf[2].style.display = "none";
+				score += 1;
+				document.querySelector('.ochki').innerHTML = score;
+			}
+			if (score == 2) {
+			zomb[0].style.display = "none";
+			zomb[1].style.display = "none";
+			zomb[2].style.display = "none";
+			zomb[3].style.display = "none";
+			zomb[4].style.display = "none";
+			win.style.display = "block";
+			document.querySelector('.box').style.display = "none";
+		}
+		}
+	zomb[3].onclick = function() {
+			left4 -= 110;
+			zomb[3].style.transition = '0.3s';
+			zomb[3].style.marginLeft = left4 + "px";
+			if (left4 == 700) {
+				alert("Горохострел съели");
+				plant[3].style.display = "none";
+				score += 1;
+				document.querySelector('.ochki').innerHTML = score;
+			}
+			if (left4 == 590) {
+				alert("Подсолнух съели");
+				sunf[3].style.display = "none";
+				score += 1;
+				document.querySelector('.ochki').innerHTML = score;
+			}
+			if (score == 2) {
+			zomb[0].style.display = "none";
+			zomb[1].style.display = "none";
+			zomb[2].style.display = "none";
+			zomb[3].style.display = "none";
+			zomb[4].style.display = "none";
+			win.style.display = "block";
+			document.querySelector('.box').style.display = "none";
+		}
+		}
+	zomb[4].onclick = function() {
+			left5 -= 110;
+			zomb[4].style.transition = '0.3s';
+			zomb[4].style.marginLeft = left5 + "px";
+			if (left5 == 700) {
+				alert("Горохострел съели");
+				plant[4].style.display = "none";
+				score += 1;
+				document.querySelector('.ochki').innerHTML = score;
+			}
+			if (left5 == 590) {
+				alert("Подсолнух съели");
+				sunf[4].style.display = "none"
+				score += 1;
+				document.querySelector('.ochki').innerHTML = score;
+			}
+			if (score == 2) {
+			zomb[0].style.display = "none";
+			zomb[1].style.display = "none";
+			zomb[2].style.display = "none";
+			zomb[3].style.display = "none";
+			zomb[4].style.display = "none";
+			win.style.display = "block";
+			document.querySelector('.box').style.display = "none";
+			}
+	}
+</script>
+</body>
+</html>
